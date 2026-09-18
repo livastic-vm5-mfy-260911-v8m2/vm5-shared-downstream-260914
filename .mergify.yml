@@ -1,1 +1,13 @@
-pull_request_rules: []
+queue_rules:
+  - name: manual-first
+    autoqueue: false
+    queue_conditions: []
+    merge_conditions: []
+    merge_method: merge
+  - name: auto-second
+    autoqueue: true
+    queue_conditions:
+      - title = VM5 AUTOQUEUE EXTERNAL IMPACT 260918
+    merge_conditions:
+      - check-success = vm5-never-pass-strong-external-migration-260918
+    merge_method: merge
