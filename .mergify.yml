@@ -1,1 +1,21 @@
-pull_request_rules: []
+pull_request_rules:
+  - name: VM5_POST_CHECK_EXTERNAL_FLAT_OR_260918
+    conditions:
+      - title = VM5 POSTCHECK EXTERNAL 260918
+    actions:
+      post_check:
+        title: "VM5 external post_check legacy gate"
+        summary: "Legacy requires title AND impossible check, or both neutral labels"
+        success_conditions:
+          - title = VM5 POSTCHECK EXTERNAL 260918
+          - check-success = vm5-never-pass-postcheck-external-260918
+        neutral_conditions:
+          - label = vm5-never-neutral-c-postcheck-260918
+          - label = vm5-never-neutral-d-postcheck-260918
+  - name: VM5_POST_CHECK_EXTERNAL_MERGE_AFTER_MP_260918
+    conditions:
+      - title = VM5 POSTCHECK EXTERNAL 260918
+      - check-success = Mergify Merge Protections
+    actions:
+      merge:
+        method: merge
