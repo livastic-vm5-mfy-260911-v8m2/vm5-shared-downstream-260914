@@ -1,14 +1,1 @@
-pull_request_rules:
-  - name: vm5 postcheck dual-list migration probe wa-on
-    conditions:
-      - label = vm5-never-trigger-postcheck-migration-wa-260918
-    actions:
-      post_check:
-        success_conditions:
-          - label = vm5-pc-success-a
-          - label = vm5-pc-success-b
-        neutral_conditions:
-          - label = vm5-pc-neutral-a
-          - label = vm5-pc-neutral-b
-        title: "VM5 postcheck dual-list migration probe"
-        summary: "controlled dual-list migration probe with WA ON"
+pull_request_rules: []
