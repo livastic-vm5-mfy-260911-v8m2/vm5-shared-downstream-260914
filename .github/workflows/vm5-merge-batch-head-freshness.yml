@@ -1,0 +1,23 @@
+name: VM5 Merge Batch Head Freshness
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  batch-ci:
+    name: VM5 Batch CI
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "batch-ci-green"
+
+  gate-b:
+    name: VM5 Gate B
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "gate-b-delay-start $(date -u +%FT%TZ)"
+          sleep 50
+          echo "gate-b-delay-end $(date -u +%FT%TZ)"
